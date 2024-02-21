@@ -12,7 +12,7 @@ public class Balancer(ISeedProvider seedProvider) : ICache, ICacheBalancer
     // it is possible to replace it with an abstraction that would have any implementation
     // that would suit the purpose of this class
     private readonly Random _random = new(seedProvider.GetSeed);
-    private readonly Dictionary<int, ICache> _cacheMap = new();
+    private readonly SortedDictionary<int, ICache> _cacheMap = new();
     private readonly Dictionary<ICache, int> _cacheToKeyMap = new();
 
     public string? GetPage(string key)
